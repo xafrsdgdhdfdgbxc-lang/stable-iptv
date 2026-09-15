@@ -680,12 +680,6 @@
             }
         }
 
-        @media (max-width: 560px) {
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -693,33 +687,203 @@
             .mobile-menu {
                 display: block;
             }
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+            .logo {
+                font-size: 1.1rem;
+            }
+            .nav-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .hero {
+                padding: 5rem 1rem 3rem;
+                min-height: auto;
+            }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
             .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+            }
+            .btn-primary, .btn-whatsapp, .btn-secondary {
+                padding: 0.85rem 1.5rem;
                 font-size: 1rem;
+                justify-content: center;
             }
             .hero-stats {
-                gap: 1.5rem;
+                gap: 1rem;
+                margin-top: 2rem;
+                flex-wrap: wrap;
+            }
+            .hero-stat {
+                min-width: 40%;
             }
             .hero-stat .number {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
-            .section-title {
-                font-size: 1.8rem;
+            .hero-stat .label {
+                font-size: 0.75rem;
             }
             .section {
-                padding: 3rem 1.5rem;
+                padding: 2.5rem 1rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .section-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .feature-card {
+                padding: 1.5rem 1.25rem;
+            }
+            .feature-icon {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            .feature-card h3 {
+                font-size: 1.1rem;
+            }
+            .feature-card p {
+                font-size: 0.85rem;
+            }
+            .channels-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .channel-card {
+                padding: 1.25rem 1rem;
+            }
+            .channel-card .icon {
+                font-size: 2rem;
+            }
+            .setup-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .setup-card {
+                padding: 1.5rem 1.25rem;
+            }
+            .setup-card h3 {
+                font-size: 1.2rem;
+            }
+            .setup-card ol {
+                padding-left: 1rem;
+                font-size: 0.85rem;
+            }
+            .setup-card li {
+                margin-bottom: 0.5rem;
+            }
+            .setup-note {
+                font-size: 0.8rem;
+            }
+            .faq-question {
+                padding: 1.25rem 1rem;
+                font-size: 0.9rem;
+            }
+            .faq-answer {
+                font-size: 0.85rem;
+            }
+            .faq-item.active .faq-answer {
+                max-height: 500px;
+            }
+            .cta-section {
+                padding: 3rem 1rem;
+            }
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+            .cta-section p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            .footer {
+                padding: 2rem 1rem 1.5rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .footer-links a {
+                font-size: 0.8rem;
+            }
+            .footer-copyright {
+                font-size: 0.75rem;
             }
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
-                bottom: 20px;
-                right: 20px;
+                bottom: 15px;
+                right: 15px;
             }
             .whatsapp-float svg {
                 width: 26px;
                 height: 26px;
+            }
+            .plan-card {
+                padding: 1.5rem 1.25rem;
+            }
+            .plan-price {
+                font-size: 2.2rem;
+            }
+            .plan-features li {
+                font-size: 0.85rem;
+                padding: 0.4rem 0;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero-buttons {
+                gap: 0.5rem;
+            }
+            .hero-stats {
+                gap: 0.75rem;
+            }
+            .hero-stat .number {
+                font-size: 1.3rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .logo {
+                font-size: 0.95rem;
+            }
+            .nav-cta {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.75rem;
+            }
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+            .hero-stat {
+                min-width: 45%;
             }
         }
 
@@ -740,7 +904,7 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#home" class="logo">Stable Subscription<span> IPTV</span></a>
+        <a href="#home" class="logo">Stable<span> IPTV</span></a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#features">Features</a></li>
             <li><a href="#plans">Plans</a></li>
