@@ -414,6 +414,71 @@
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
         }
 
+        /* Setup */
+        .setup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .setup-card {
+            background: var(--dark-2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .setup-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(229, 9, 20, 0.3);
+        }
+
+        .setup-card .app-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--light);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .setup-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .setup-card ol {
+            padding-left: 1.2rem;
+            color: var(--gray);
+        }
+
+        .setup-card li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .setup-card li strong {
+            color: var(--light);
+        }
+
+        .setup-note {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .setup-note a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
         /* Channels */
         .channels-grid {
             display: grid;
@@ -680,6 +745,7 @@
             <li><a href="#features">Features</a></li>
             <li><a href="#plans">Plans</a></li>
             <li><a href="#channels">Channels</a></li>
+            <li><a href="#setup">Setup</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -857,6 +923,41 @@
         </div>
     </section>
 
+    <!-- Setup Guide -->
+    <section class="section" id="setup">
+        <h2 class="section-title">How to Set Up</h2>
+        <p class="section-subtitle">Quick setup guides for our recommended IPTV apps. Get streaming in minutes.</p>
+        <div class="setup-grid">
+            <div class="setup-card">
+                <span class="app-badge">RECOMMENDED</span>
+                <h3>IBO Player Pro</h3>
+                <ol>
+                    <li>Install <strong>IBO Player Pro</strong> from your device's app store (Samsung Smart Hub, LG Content Store, Google Play, or Amazon Appstore).</li>
+                    <li>Open the app and write down your <strong>MAC Address</strong> and <strong>Device Key</strong> shown on screen.</li>
+                    <li>On your phone or computer, visit <a href="https://iboplayer.pro/manage-playlists/" target="_blank">iboplayer.pro/manage-playlists</a>.</li>
+                    <li>Enter your MAC Address and Device Key, then click <strong>Login</strong>.</li>
+                    <li>Click <strong>Add Playlist</strong> and choose <strong>M3U URL</strong> or <strong>Xtream Codes</strong>.</li>
+                    <li>Paste the playlist details we send you via WhatsApp, then click <strong>Save</strong>.</li>
+                    <li>Return to your TV, restart the IBO Player Pro app, and your channels will load automatically.</li>
+                </ol>
+                <p class="setup-note">💡 IBO Player Pro includes a free trial period. After that, the app may require a one-time activation fee paid directly to the app developer — this is separate from your IPTV subscription.</p>
+            </div>
+            <div class="setup-card">
+                <h3>IBO Player</h3>
+                <ol>
+                    <li>Install <strong>IBO Player</strong> from your Smart TV, Android TV, Firestick, or mobile app store.</li>
+                    <li>Open the app and note your <strong>MAC Address</strong> and <strong>Device Key</strong>.</li>
+                    <li>On your phone or computer, go to <a href="https://iboplayer.com/device/login" target="_blank">iboplayer.com/device/login</a>.</li>
+                    <li>Enter your MAC Address and Device Key to log in.</li>
+                    <li>Click <strong>Add Playlist</strong> or <strong>Add XC Playlist</strong> and enter your M3U URL or Xtream Codes.</li>
+                    <li>Save your playlist, then restart the IBO Player app on your device.</li>
+                    <li>Your channel list, movies, and series will appear automatically.</li>
+                </ol>
+                <p class="setup-note">💡 Make sure to copy and paste the playlist URL or Xtream credentials exactly as we send them. Extra spaces or missing characters will prevent channels from loading.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ -->
     <section class="section" id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
@@ -868,7 +969,7 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>For stability reasons, one subscription code supports one device at a time. You cannot use the same account on multiple devices simultaneously. However, you can switch between different devices at different times (e.g., watch on your TV during the day and on your phone at night). If you need multi-device simultaneous streaming, please contact us on WhatsApp for options.</p>
+                    <p>Stable Subscription IPTV works on Smart TVs (Samsung, LG, Sony, Android TV), Amazon Firestick, Android TV boxes, Apple TV, iOS and Android phones/tablets, Windows PC, Mac, and MAG boxes. We recommend IBO Player Pro or IBO Player for Smart TVs. If you're unsure whether your device is supported, just ask us on WhatsApp.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -904,7 +1005,7 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Yes! One subscription supports multiple devices. However, simultaneous streaming may be limited depending on your plan. Contact us on WhatsApp to discuss your specific needs.</p>
+                    <p>For stability reasons, one subscription code supports one device at a time. You cannot use the same account on multiple devices simultaneously. However, you can switch between different devices at different times (for example, watch on your TV during the day and on your phone at night). If you need multi-device simultaneous streaming, please contact us on WhatsApp for options.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -939,6 +1040,7 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#plans">Plans</a></li>
                 <li><a href="#channels">Channels</a></li>
+                <li><a href="#setup">Setup</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="https://wa.me/8618876591310" target="_blank">WhatsApp</a></li>
             </ul>
