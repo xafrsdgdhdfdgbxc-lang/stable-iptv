@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stable Subscription IPTV - Premium Global Streaming Service</title>
+    <meta name="description" content="Stable Subscription IPTV offers 10,000+ live channels worldwide. 4K quality, multi-device support, 24/7 customer service. Free trial available.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e50914;
+            --primary-dark: #b00710;
+            --dark: #0a0a0a;
+            --dark-2: #141414;
+            --dark-3: #1f1f1f;
+            --light: #ffffff;
+            --gray: #b3b3b3;
+            --gray-dark: #808080;
+            --green: #25d366;
+            --gradient: linear-gradient(135deg, #e50914 0%, #b00710 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--light);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: radial-gradient(ellipse at center, rgba(229, 9, 20, 0.15) 0%, var(--dark) 70%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.05"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(229, 9, 20, 0.5);
+        }
+
+        .btn-whatsapp {
+            background: var(--green);
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.3s, background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .hero-stat .label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Section General */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--dark-2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(229, 9, 20, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Plans */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: var(--dark-2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, rgba(229, 9, 20, 0.08) 0%, var(--dark-2) 100%);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: var(--light);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price .currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .plan-price .period {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 0.6rem 0;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        .plan-cta {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .plan-cta:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+        }
+
+        .plan-cta.whatsapp {
+            background: var(--green);
+        }
+
+        .plan-cta.whatsapp:hover {
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Channels */
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .channel-card {
+            background: var(--dark-2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(229, 9, 20, 0.2);
+        }
+
+        .channel-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .channel-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .channel-card p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--dark-2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--dark-3);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+            color: var(--gray);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* Contact / CTA Section */
+        .cta-section {
+            background: radial-gradient(ellipse at center, rgba(229, 9, 20, 0.15) 0%, var(--dark) 70%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-2);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--light);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: var(--gray-dark);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5), 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 4 20px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .plans-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            .hero-stat .number {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .section {
+                padding: 3rem 1.5rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        .nav-links.active {
+            display: flex;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            background: var(--dark-2);
+            padding: 1rem 2rem;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#home" class="logo">Stable Subscription<span> IPTV</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#channels">Channels</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27m%20interested%20in%20Stable%20Subscription%20IPTV%20service" class="nav-cta" target="_blank">Free Trial</a>
+        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Watch <span>10,000+</span> Live Channels Worldwide</h1>
+            <p>Premium IPTV service with 4K quality streaming. US, UK, Sports, Movies, and more — all in one subscription. Available on all devices.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27d%20like%20a%20free%20IPTV%20trial" class="btn-whatsapp" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Get Free Trial
+                </a>
+                <a href="#plans" class="btn-secondary">View Plans</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">10K+</div>
+                    <div class="label">Live Channels</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">4K</div>
+                    <div class="label">Ultra HD Quality</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">99.9%</div>
+                    <div class="label">Uptime</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">24/7</div>
+                    <div class="label">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <h2 class="section-title">Why Choose Stable Subscription IPTV?</h2>
+        <p class="section-subtitle">Everything you need for the ultimate streaming experience</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Global Channels</h3>
+                <p>10,000+ channels from US, UK, Europe, Middle East, Asia, and Latin America. All your favorite content in one place.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📺</div>
+                <h3>4K Ultra HD</h3>
+                <p>Crystal-clear streaming in up to 4K resolution. No buffering, no lag — just pure entertainment.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Multi-Device Support</h3>
+                <p>Watch on Smart TV, Android, iOS, Firestick, Mag Box, PC, and more. One subscription, all your devices.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Anti-Freeze Tech</h3>
+                <p>Advanced anti-freeze technology ensures smooth playback. Premium servers with 99.9% uptime guarantee.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>24/7 Support</h3>
+                <p>Round-the-clock customer support via WhatsApp. Quick response, real solutions, anytime you need help.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>All Sports & PPV</h3>
+                <p>Watch all major sports events, PPV fights, Premier League, NFL, NBA, UFC, and more — included at no extra cost.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans -->
+    <section class="section" id="plans">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <p class="section-subtitle">Simple, transparent pricing. No hidden fees. Contact us on WhatsApp to subscribe.</p>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <div class="plan-name">Monthly</div>
+                <div class="plan-price"><span class="currency">$</span>8<span class="period">/mo</span></div>
+                <ul class="plan-features">
+                    <li>10,000+ Live Channels</li>
+                    <li>4K / HD / SD Quality</li>
+                    <li>All Sports & PPV Events</li>
+                    <li>Multi-Device Support</li>
+                    <li>24/7 WhatsApp Support</li>
+                </ul>
+                <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27m%20interested%20in%20the%20Monthly%20plan%20(%248%2Fmo)" class="plan-cta whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <div class="plan-card">
+                <div class="plan-name">3 Months</div>
+                <div class="plan-price"><span class="currency">$</span>19<span class="period">/3mo</span></div>
+                <ul class="plan-features">
+                    <li>10,000+ Live Channels</li>
+                    <li>4K / HD / SD Quality</li>
+                    <li>All Sports & PPV Events</li>
+                    <li>Multi-Device Support</li>
+                    <li>24/7 WhatsApp Support</li>
+                </ul>
+                <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27m%20interested%20in%20the%203%20Months%20plan%20(%2419)" class="plan-cta whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <div class="plan-card">
+                <div class="plan-name">6 Months</div>
+                <div class="plan-price"><span class="currency">$</span>27<span class="period">/6mo</span></div>
+                <ul class="plan-features">
+                    <li>10,000+ Live Channels</li>
+                    <li>4K / HD / SD Quality</li>
+                    <li>All Sports & PPV Events</li>
+                    <li>Multi-Device Support</li>
+                    <li>24/7 WhatsApp Support</li>
+                </ul>
+                <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27m%20interested%20in%20the%206%20Months%20plan%20(%2427)" class="plan-cta whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+            <div class="plan-card featured">
+                <div class="plan-badge">BEST VALUE</div>
+                <div class="plan-name">12 Months</div>
+                <div class="plan-price"><span class="currency">$</span>42<span class="period">/yr</span></div>
+                <ul class="plan-features">
+                    <li>10,000+ Live Channels</li>
+                    <li>4K / HD / SD Quality</li>
+                    <li>All Sports & PPV Events</li>
+                    <li>Multi-Device Support</li>
+                    <li>24/7 Priority Support</li>
+                    <li>Save 56% vs Monthly</li>
+                </ul>
+                <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27m%20interested%20in%20the%2012%20Months%20plan%20(%2442%2Fyr)" class="plan-cta whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:2rem; color:var(--gray);">
+            💡 Want a free trial first? <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27d%20like%20a%20free%20IPTV%20trial" style="color:var(--green); text-decoration:none; font-weight:600;" target="_blank">Message us on WhatsApp →</a>
+        </p>
+    </section>
+
+    <!-- Channels -->
+    <section class="section" id="channels">
+        <h2 class="section-title">What's Included</h2>
+        <p class="section-subtitle">A massive selection of channels across all categories</p>
+        <div class="channels-grid">
+            <div class="channel-card">
+                <div class="icon">🇺🇸</div>
+                <h4>USA Channels</h4>
+                <p>HBO, ESPN, CNN, Fox, NBC, ABC, NBA TV, NFL Network & 2,000+ more</p>
+            </div>
+            <div class="channel-card">
+                <div class="icon">🇬🇧</div>
+                <h4>UK Channels</h4>
+                <p>Sky Sports, BT Sport, BBC, ITV, Sky Cinema, Premier League & 1,500+ more</p>
+            </div>
+            <div class="channel-card">
+                <div class="icon">⚽</div>
+                <h4>Sports & PPV</h4>
+                <p>Premier League, NFL, NBA, UFC, WWE, F1, La Liga, Champions League & more</p>
+            </div>
+            <div class="channel-card">
+                <div class="icon">🎬</div>
+                <h4>Movies & Series</h4>
+                <p>Netflix, Disney+, HBO Max, Prime Video content + 5,000+ VOD movies & series</p>
+            </div>
+            <div class="channel-card">
+                <div class="icon">🌍</div>
+                <h4>International</h4>
+                <p>Arabic, Indian, Spanish, French, German, Portuguese, Turkish & 50+ countries</p>
+            </div>
+            <div class="channel-card">
+                <div class="icon">📺</div>
+                <h4>VOD Library</h4>
+                <p>10,000+ Movies and TV Series on demand. Updated weekly with new releases.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Got questions? We've got answers.</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What devices are supported?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For stability reasons, one subscription code supports one device at a time. You cannot use the same account on multiple devices simultaneously. However, you can switch between different devices at different times (e.g., watch on your TV during the day and on your phone at night). If you need multi-device simultaneous streaming, please contact us on WhatsApp for options.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I get a free trial?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Simply message us on WhatsApp and we'll set up a free trial account for you. The trial lasts 24 hours and includes full access to all channels so you can test the quality before subscribing.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How fast will I get my subscription?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Once you contact us on WhatsApp and confirm your plan, we'll set up your account within minutes. Most subscriptions are activated within 5-10 minutes of payment confirmation.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What internet speed do I need?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For SD channels: 10 Mbps minimum. For HD channels: 15 Mbps minimum. For 4K streaming: 25 Mbps or higher recommended. Most home internet plans easily meet these requirements.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I use it on multiple devices at the same time?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! One subscription supports multiple devices. However, simultaneous streaming may be limited depending on your plan. Contact us on WhatsApp to discuss your specific needs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What payment methods do you accept?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept various payment methods including PayPal, credit cards, and cryptocurrency (USDT/Bitcoin). Contact us on WhatsApp for detailed payment options available in your region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Start Watching?</h2>
+        <p>Get your free trial now — no credit card needed. Just message us on WhatsApp.</p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27d%20like%20a%20free%20IPTV%20trial" class="btn-whatsapp" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Message Us on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Stable Subscription<span> IPTV</span></div>
+            <ul class="footer-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#plans">Plans</a></li>
+                <li><a href="#channels">Channels</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://wa.me/8618876591310" target="_blank">WhatsApp</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            © 2026 Stable Subscription IPTV. All rights reserved. | contact@stable-subscription-iptv.com
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/8618876591310?text=Hi%2C%20I%27m%20interested%20in%20Stable%20Subscription%20IPTV" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // FAQ toggle
+        function toggleFAQ(element) {
+            element.parentElement.classList.toggle('active');
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
